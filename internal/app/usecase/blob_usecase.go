@@ -1,11 +1,26 @@
+package usecase
+
+import (
+    "mime/multipart"
+    "phillip-cms-jobs/internal/infrastructure/storage"
+)
+
+type BlobUsecase struct {
+    storage *storage.BlobStorage
+}
+
+func NewBlobUsecase() *BlobUsecase {
+    return &BlobUsecase{
+        storage: storage.NewBlobStorage(), // สร้าง storage
+    }
+}
+
 func (u *BlobUsecase) Upload(file *multipart.FileHeader) error {
-    // แปลง file เป็น byte stream หรือเปิดไฟล์
     f, err := file.Open()
     if err != nil {
         return err
     }
     defer f.Close()
 
-    // เรียก storage layer เพื่ออัปโหลดไป Azure Blob
     return u.storage.Upload(f, file.Filename)
 }

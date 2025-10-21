@@ -1,0 +1,36 @@
+/phillip-cms-jobs
+│── /cmd
+│   └── main.go
+│── /internal
+│   ├── /app/usecase    
+│   │   └── blob_usecase.go
+│   ├── /domain
+│   │   └── /model
+│   │       ├── blob.go
+│   │       ├── item.go
+│   │       └── matchingprofile.go
+│   ├── /infrastructure
+│   │   ├── /db
+│   │   │   ├── connectionPostgreSQL.go
+│   │   │   └── connectionMongoDB.go
+│   │   ├── /storage
+│   │       └── blob.go
+│   └── /interface
+│       ├── /handler
+│       │   ├── blob_handler.go
+│       │   ├── product_handler.go
+│       │   └── user_handler.go
+│       └── /router
+│           └── router.go
+│── /scripts
+│   └── cronjob.go
+│── /utils
+│   └── jwt.go
+│── go.mod
+│── go.sum
+│── Dockerfile
+│── docker-compose.yml
+│── azure-pipelines.sit.yml
+│── .env
+│── .env.sit
+│── .env.prod
